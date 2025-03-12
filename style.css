@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a1a;
+    font-family: 'Arial', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1%;
+    background-color: #000000;
+    border-bottom: 2px solid #0ff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.logo {
+    display: flex; /* Ajouté pour aligner l'image et le texte */
+    align-items: center; /* Centre verticalement */
+    gap: 1rem; /* Espace entre l'image et le texte */
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px #0ff,
+            0 0 10px #0ff,
+            0 0 20px #0ff;
+    transition: all 0.3s ease; /* Changé à 'all' pour animer l'image */
+}
+
+/* Styles ajoutés pour l'image du logo */
+.logo img {
+    height: 40px;
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+.logo:hover img {
+    filter: drop-shadow(0 0 10px #0ff)
+        drop-shadow(0 0 20px #0ff)
+        drop-shadow(0 0 30px #0ff);
+    transform: rotate(360deg);
+}
+
+.logo span {
+    color: #0ff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    position: relative;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #0ff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #0ff;
+    text-shadow: 0 0 5px #0ff,
+                0 0 10px #0ff;
+}
+
+.nav-links a:hover::before {
+    transform: scaleX(1);
+    box-shadow: 0 0 5px #0ff,
+                0 0 10px #0ff;
+}
+
+/* Animation au survol du logo */
+.logo:hover {
+    text-shadow: 0 0 10px #0ff,
+                0 0 20px #0ff,
+                0 0 30px #0ff;
+    cursor: pointer;
+}
+
+.presentation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 75px;
+    background-color: #1a1a1a;
+    height: 85vh;
+}
+.presentation-text{
+    max-width: 50%;
+    font-size: 30px;
+    color: #fff;
+}
+.span{
+    color: #0ff;
+}
+.presentation-image{
+    max-width: 50%;
+}
+.presentation-image img{
+    width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+}
+#frontend{
+    animation: fadeln 2s infinite;}
+@keyframes fadeln {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+button{
+    padding: 10px 20px;
+    background-color: #0ff;
+    color:#1a1a1a;
+}
+button:hover {
+    transform: scale(1.1); /* Scale button on hover */
+}
+
+/* Section propos */
+.propos-image{
+    max-width: 70%;
+    animation : bouncing 1s infinite;}
+    @keyframes bouncing {
+        0% {transform: translateY(0);}
+        40% {transform: translateY(-30px);}
+        60% {transform: translateY(-15);}
+    }
+
+.propos-image img{
+    width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+}
+.propos-text{
+    max-width: 100%;
+    font-size: 20px;
+    color: #1a1a1a;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.propos{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    padding: 50px 75px;
+    background-color: #fff;
+    margin-top: 50px;
+}
