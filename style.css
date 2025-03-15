@@ -140,33 +140,264 @@ button:hover {
 }
 
 /* Section propos */
-.propos-image{
-    max-width: 70%;
-    animation : bouncing 1s infinite;}
-    @keyframes bouncing {
-        0% {transform: translateY(0);}
-        40% {transform: translateY(-30px);}
-        60% {transform: translateY(-15);}
-    }
-
-.propos-image img{
-    width: 100%;
-    max-width: 100%;
+.card{
+    position: absolute;
+    margin-left: 25%;
+    width: 650px;
+    height: 550px;
+    background-color: #fcfcfc;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 1000px;
+    box-shadow: 0 0 0 10px #ffffff;
+    transition: all 0.6s
+    cubic-bezier(0.175, 0.885, 0.32, 1.75);
 }
-.propos-text{
-    max-width: 100%;
-    font-size: 20px;
-    color: #1a1a1a;
+.card img{
+    width: 100%;
+    height: 100%;
+    animation: bouncing 1s infinite;
+}
+@keyframes bouncing {
+    0%, 50% {transform: translateY(0);}
+    40% {transform: translateY(-30px);}
+    60% {transform: translateY(-15px);}
+}
+.card:hover{
+    transition: scale(1.05);
+    box-shadow: 0 8 px 16px 0 #00000033;
+}
+.card-content{
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background-color: #0ff;
+    transform-origin: bottom;
+    transition: all 0.6s
+    cubic-bezier(0.175, 0.885, 0.32, 1.75);
+    transform: rotateX(-90deg);
+}
+.card:hover .card-content{
+    transform: rotateX(0deg);
+}
+.card-title{
     text-align: center;
-    margin-top: 50px;
+    margin: 0;
+    font-size: 50px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+.card:hover img{
+    scale: 0;
+}
+.card-description{
+    text-align: center;
+    margin: 10px 0 0;
+    font-size: 24px;
+    color: #1a1a1a;
+    line-height: 1.4;
 }
 
-.propos{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 20px;
-    padding: 50px 75px;
-    background-color: #fff;
-    margin-top: 50px;
+/* Section portfolio */
+.construction {
+    padding: 20px;
+    background: #fff; /* Correction de la couleur + transparence */
+    color: #1a1a1a; /* Couleur de texte contrastée */
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    border: 2px dashed #0ff;
+    animation: pulse 2s infinite;
+    position: relative;
+    margin: 20px 0;
+    top: 600px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+/* Animation améliorée */
+@keyframes pulse {
+    0% { 
+        opacity: 0.8;
+        transform: scale(0.98);
+    }
+    50% { 
+        opacity: 1;
+        transform: scale(1);
+        background: #0ff3; /* Légère variation */
+    }
+    100% { 
+        opacity: 0.8;
+        transform: scale(0.98);
+    }
+}
+
+/* Effet "cafouillage" ASCII optionnel */
+.construction::after {
+    content: "▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼";
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    font-size: 12px;
+    color: #0ff;
+    opacity: 0.5;
+}
+
+/* Section contact */   
+    .contact-section {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 30px;
+        margin-top: 700px;
+        background: #1a1a1a;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    }
+    
+    .contact-form {
+        display: grid;
+        gap: 25px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 10px;
+        color: #0ff;
+        font-weight: 500;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        background: #2d2d2d;
+        border: 1px solid #0ff;
+        border-radius: 6px;
+        color: #fff;
+        transition: all 0.3s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        box-shadow: 0 0 10px #0ff;
+    }
+    
+    button[type="submit"] {
+        background: #0ff;
+        color: #1a1a1a;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+    }
+    
+    button[type="submit"]:hover {
+        transform: scale(1.05);
+    }
+    
+    .success-message {
+        display: none;
+        text-align: center;
+        padding: 20px;
+        background: #0ff3;
+        margin-top: 20px;
+        border-radius: 8px;
+    }
+    
+    @media (max-width: 768px) {
+        .contact-section {
+            margin: 20px;
+            padding: 20px;
+        }
+        
+        .form-group label {
+            font-size: 0.9rem;
+        }
+    }
+    
+
+
+/* Section footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    color: #343a40;
+}
+
+
+/* Media queries */
+@media screen and (max-width: 750px) {
+    header{
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    nav{
+        flex-direction: column;
+        gap: 10px;
+        color: #0ff;
+    }
+    .nav-links {
+        display: none;
+        
+    }
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background-color: #000000;
+        width: 100%;
+        padding: 1rem;
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    }
+    .nav-links.active a {
+        padding: 10px 20px;
+    }
+    .logo {
+        font-size: 1.2rem;
+    }
+    .logo img {
+        height: 30px;
+    }
+    .presentation {
+        padding: 50px 20px;
+    }
+    .presentation-text {
+        font-size: 15px;
+    }
+    .card {
+        margin: 0;
+        width: 100%;
+        height: 500px;
+    }
+    .card-content {
+        padding: 10px;
+        margin: 0;
+    }
+    .card-title {
+        font-size: 30px;
+    }
+    .card-description {
+        font-size: 18px;
+    }
+    .construction{
+        top: 550px;
+    }
+    .contact-section {
+        margin-top: 600px;
+    }
 }
